@@ -10,88 +10,24 @@
 </div>
 
     <div class="AllModule">
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item etat">
-                <div class="circleGreen"></div>
-                <div class="circleOrange"></div>
-                <div class="circleRed"></div>
-            </li>
-            <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Module n°1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
 
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item etat">
-                <div class="circleGreen"></div>
-                <div class="circleOrange"></div>
-                <div class="circleRed"></div>
-            </li>
-            <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Module n°1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+        {% for module in modules %}
+            <div class="card" style="width: 18rem;">
+                <li class="list-group-item etat">
+                    <div class="circleGreen"></div>
+                    <div class="circleOrange"></div>
+                    <div class="circleRed"></div>
+                </li>
+                <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Module n°{{module.number}} : {{module.name}}</h5>
+                    <p class="card-text">{{module.type}}</p>
+                    <p class="card-text">{{module.description}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
             </div>
-        </div>
+        {% endfor %}
         
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item etat">
-                <div class="circleGreen"></div>
-                <div class="circleOrange"></div>
-                <div class="circleRed"></div>
-            </li>
-            <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Module n°1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item etat">
-                <div class="circleGreen"></div>
-                <div class="circleOrange"></div>
-                <div class="circleRed"></div>
-            </li>
-            <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Module n°1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item etat">
-                <div class="circleGreen"></div>
-                <div class="circleOrange"></div>
-                <div class="circleRed"></div>
-            </li>
-            <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Module n°1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <li class="list-group-item etat">
-                <div class="circleGreen"></div>
-                <div class="circleOrange"></div>
-                <div class="circleRed"></div>
-            </li>
-            <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Module n°1</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
     </div>
 
 

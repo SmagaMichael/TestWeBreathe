@@ -18,6 +18,17 @@
 
 
 	</head>
+
+	{% for label, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert alert-{{ label }} mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
+
+
+
 	<body>
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,7 +62,7 @@
                                     <a class="dropdown-item" href="#">Gérer mes équipements</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Ajouter un équipement</a>
+                                    <a class="dropdown-item" href="{{path('add_module')}}">Ajouter d'un module</a>
                                 </li>
                                 {# <li>
                                     <hr class="dropdown-divider">

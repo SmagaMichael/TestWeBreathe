@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddModuleController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<h1>Ajouter un module</h1>
+
+    {{ form_start(AddModuleFormType) }}
+        {{ form_widget(AddModuleFormType) }}<!-- input-->
+        <button class="btn btn-primary m-4">Ajouter le module</button>
+    {{ form_end(AddModuleFormType) }}
+</div>
+{# J'affiche mon formulaire #}
+   
+
+
+
+
+
+{% endblock %}
