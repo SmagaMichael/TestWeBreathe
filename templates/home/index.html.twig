@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+
+	<div class="homeCover">
+		<p class="col-lg-12">Monitoring de modules</p>
+		<h1 class="col-lg-8">Votre espace de surveillance de modules</h1>
+		<p class="m-5">Depuis plusieurs années, les objets connectés à internet se multiplient, c'est pourquoi nous proposons des solutions efficaces afin que vous puissiez gérer et visualiser au mieux vos modules.</p>
+		<div class=" d-flex flex-wrap">
+			<div class=" col-lg-5 p-5">
+				<h3>Surveillez l'ensemble de votre pile de développement à partir de 4 $ par mois seulement.</h3>
+				<p>Notre tarification basée sur l'utilisation simple et abordable signifie que vous ne payez que ce que vous utilisez. Tous nos plans sont entièrement équipés avec des tableaux de bord illimités, un suivi du déploiement et une surveillance de l'expérience utilisateur.
+				La suite complète d'outils de surveillance des erreurs et des performances de Raygun vous offre une visibilité complète en temps réel de l'état et des performances de vos applications.</p>
+			</div>
+			<div class="col-lg-6">
+				<img class="img-fluid" src="{{asset('img/home/monitoring2.png')}}" alt="">
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="d-flex flex-wrap justify-content-center indications">
+		<div class="col-lg-3 p-4 ">
+			<img  src="{{asset('img/home/eyes.jpg')}}" alt="">
+			<h4>Gardez un oeil sur vos modules</h4>
+			<p>Grâce à nous visualisez facilement vos modules en un clin d'oeil !</p>
+		</div>
+
+		<div class="col-lg-3 p-4">
+			<img src="{{asset('img/home/responsive.jpg')}}" alt="">
+			<h4>Gérez vos modules où que vous soyez</h4>
+			<p>Notre site a été conçut pour s'adapter tant à votre ordinateur que sur votre tablette ou portable ainsi controlez vos modules quand vous le souhaitez où que vous soyez !</p>
+		</div>
+
+		<div class="col-lg-3 p-4">
+			<img  src="{{asset('img/home/notif3.png')}}" alt="">
+			<h4>Recevez une notification en cas de dysfonctionnement</h4>
+			<p>Soyez alerté en temps réel d'un dysfonctionnement où de l'état d'un de vos modules !</p>
+		</div>
+	</div>
+
+	<div>
+		<img src="{{asset('img/separator/barre1.svg')}}" alt="">
+	</div>
+
+	</br>
+
+	{# <div class="separatorreturner">
+		<img  src="{{asset('img/separator/barre3.svg')}}" alt="">
+	</div> #}
+
+
+
+	<div class=" d-flex flex-wrap align-items-center homeCover">
+		<div class="col-lg-5 p-5">
+			<h3>Personne ne vous donne plus de détails</h3>
+			<p>Les équipes Webreathe vous accompagnent complétement dans l’intégration et le déploiement de votre solution</p>
+			<p>Nous ne vous disons pas seulement quand quelque chose ne va pas, nous vous disons où cela s'est mal passé et comment y remédier. Notre site est conçu par nos développeurs, garantissant que les informations que nous fournissons sont conçues pour stimuler l'action, vous faisant gagner du temps et de l'argent.</p>
+			<div class="descriptionLogo" >
+				<img class="m-3" src="{{asset('img/installation/1Conseil.png')}}" alt=""></br>
+				<i class="fas fa-long-arrow-alt-right m-3"></i>
+				<p>Étude et conseil</p>
+			</div>
+
+			<div class="descriptionLogo" >
+				<img class="m-3" src="{{asset('img/installation/2installation.png')}}" alt=""></br>
+				<i class="fas fa-long-arrow-alt-right m-3"></i>
+				<p>Installation de l'équipement</p>
+			</div>
+
+			<div class="descriptionLogo" >
+				<img class="m-3" src="{{asset('img/installation/3para.png')}}" alt=""></br>
+				<i class="fas fa-long-arrow-alt-right m-3"></i>
+				<p>Paramétrage de l'équipement</p>
+			</div>
+
+			<div class="descriptionLogo" >
+				<img class="m-3" src="{{asset('img/installation/4integration.png')}}" alt=""></br>
+				<i class="fas fa-long-arrow-alt-right m-3"></i>
+				<p>Intégration à vos outils existants</p>
+			</div>
+
+			<div class="descriptionLogo" >
+				<img class="m-3" src="{{asset('img/installation/5formation.png')}}" alt=""></br>
+				<i class="fas fa-long-arrow-alt-right m-3"></i>
+				<p>Formation utilisateurs et maintenance </p>
+			</div>
+
+			<div class="descriptionLogo" >
+				<img class="m-4" src="{{asset('img/installation/6Support.png')}}" alt=""></br>
+				<i class="fas fa-long-arrow-alt-right m-3"></i>
+				<p>Support client</p>
+			</div>
+		</div>
+
+		<div class="col-lg-6 p-4">
+			<img class="img-fluid" src="{{asset('img/home/monitoring.png')}}" alt="">
+		</div>
+
+	</div>
+
+
+
+	<div class=" d-flex flex-wrap justify-content-center mt-4 mb-4 p-2">
+		<h4><img class="logoClientHome" src="{{asset('img/client/logoclient2.jpg')}}" alt=""> Reconnu par 30,000+ utilisateurs satisfaits à travers le monde: </h4>
+		<div class="d-flex flex-wrap align-items-center">
+			<img class=" offset-lg-1 col-lg-2 img-fluid" src="{{asset('img/client/client1.png')}}" alt="">
+			<img class="col-lg-2 img-fluid" src="{{asset('img/client/client2.png')}}" alt="">
+			<img class="col-lg-2 img-fluid" src="{{asset('img/client/client3.png')}}" alt="">
+			<img class="col-lg-2 img-fluid" src="{{asset('img/client/client4.png')}}" alt="">
+			<img class="col-lg-2 img-fluid" src="{{asset('img/client/client5.png')}}" alt="">
+		</div>
+		<h4>Pourquoi pas vous ?! 🙂</h4>
+	</div>
+
+{% endblock %}

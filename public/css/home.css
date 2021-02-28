@@ -1,0 +1,50 @@
+.homeCover{
+    background: linear-gradient(#000000, #2467df);
+    /* background-color: #23699c; */
+    color: white;
+    border-radius: 15px;
+    height: auto;
+
+    margin: 30px;
+    padding: 90px 20px 20px 15px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.homeCover p:first-child{
+    font-weight: bold;
+}
+
+.homeCover h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 70px;
+
+}
+
+.indications img{
+    height: 170px;
+    width: auto;
+}
+
+.indications{
+    text-align: center
+}
+
+.separatorreturner{
+  display: flex;
+  justify-content: end;
+}
+
+.logoClientHome{
+    height: 50px;
+    width: auto;
+}
+
+.descriptionLogo{
+    display: flex;
+    align-items: center;
+}
