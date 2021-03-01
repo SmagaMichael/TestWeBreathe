@@ -23,6 +23,18 @@ class AddModuleController extends AbstractController
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
 
+
+            //__________________UPLOAD IMAGE___________________________________________
+            /** @var UploadedFile $image */
+            $image= $form->get('image')->getData();
+            if($image){
+                $filename = uniqid().'.'.$image->guessExtension();
+                $image->move($this->getParameter('upload_directory'), $filename);
+                $Module->setImage($filename);
+            }else{
+                $Module->setImage('default.png');
+            }
+
                 //On ajoute l'objet dans la BDD
                 //On récupere le service doctrine qui permet de gérer la base de données
              $entityManager = $this->getDoctrine()->getManager();

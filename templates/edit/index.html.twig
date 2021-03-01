@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajout de module{% endblock %}
+{% block title %}Editez votre module{% endblock %}
 
 {% block body %}
 
 <div class="container">
-<h1>Ajouter un module</h1>
+<h1>Editez le module </h1>
 
     {{ form_start(AddModuleFormType) }}
         {{ form_widget(AddModuleFormType) }}<!-- input-->
@@ -14,5 +14,6 @@
 </div>
 {# J'affiche mon formulaire #}
    
+
 
 {% endblock %}

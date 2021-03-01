@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Module;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,6 +21,8 @@ class AddModuleFormType extends AbstractType
             ->add('duree_fonctionnement')
             ->add('donnees_envoyees')
             ->add('etat_de_marche')
+            ->add('image', FileType::class, [])
+                
         ;
     }
 

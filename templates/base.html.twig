@@ -54,16 +54,24 @@
                     <ul class="navbar-nav  mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Mon compte
-
+                               {% if app.user %}
+									{{ app.user.username }}
+								{% else %}
+									mon compte
+								{% endif %} 
                             </a>
+
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="#">Gérer mes équipements</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{path('add_module')}}">Ajouter d'un module</a>
-                                </li>
+								{% if is_granted('ROLE_ADMIN') %}	
+                               		 <li><a class="dropdown-item" href="#">Gérer mes équipements (DashBoard)</a></li>
+								{% endif %}
+								{% if app.user %}
+									<li><a class="dropdown-item" href="{{path('add_module')}}">Ajouter d'un module</a></li>
+									<li><a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a></li>
+								{% else %}
+									<li><a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a></li>
+									<li><a class="dropdown-item" href="{{ path('app_register') }}">Inscription</a></li>
+								{% endif %}	
                                 {# <li>
                                     <hr class="dropdown-divider">
                                 </li>

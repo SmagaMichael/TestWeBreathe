@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ModulesController!{% endblock %}
+{% block title %}Vos Modules{% endblock %}
 
 {% block body %}
 
@@ -18,12 +18,14 @@
                     <div class="circleOrange"></div>
                     <div class="circleRed"></div>
                 </li>
-                <img src="{{asset('img/module/montre.jpg')}}" class="card-img-top" alt="...">
+                <img src="{{asset('img/module/' ~ module.image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Module n°{{module.number}} : {{module.name}}</h5>
-                    <p class="card-text">{{module.type}}</p>
+                    <h5 class="card-title">Module n°{{module.number}}</h5>
+                    <h5 class="card-title">{{module.name}}</h5>
+                    <p class="card-text">Type : {{module.type}}</p>
                     <p class="card-text">{{module.description}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
+                    <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
                 </div>
             </div>
         {% endfor %}

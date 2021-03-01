@@ -57,6 +57,11 @@ class Module
      */
     private $etat_de_marche;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Module
     public function setEtatDeMarche(bool $etat_de_marche): self
     {
         $this->etat_de_marche = $etat_de_marche;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
