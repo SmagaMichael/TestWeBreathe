@@ -40,3 +40,4 @@ security:
         - { path: ^/add/product, roles: ROLE_ADMIN }
         - { path: ^/add/module, roles: ROLE_USER }
         - { path: ^/modules, roles: ROLE_USER }
+        - { path: ^/easyadmin, roles: ROLE_ADMIN}
