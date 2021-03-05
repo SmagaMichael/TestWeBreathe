@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Module;
+use App\Entity\ModuleCategory;
 use App\Repository\ModuleCategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,17 +13,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category{id}", name="category")
+     * @Route("/category/{id}", name="category")
      */
     public function index($id, Request $request, ModuleCategoryRepository $moduleCategoryRepository): Response
     {
 
-        // //la on appelle la table OneProduct
-        // $repository = $this->getDoctrine()->getRepository(Module::class);
-        // //je veux les modules qui on l'id que je veux
-        // $modules = $repository->FindCategory($id);
+        //la on appelle la table Module
+        $repository = $this->getDoctrine()->getRepository(Module::class);
 
-        // $category = $moduleCategoryRepository->findAll();
+        //appelle la méthode 
+        $ModuleByCategory = $repository->FindCategory($id);
+        
+
+        //Affiche du menu de catégorie
+        $categories = $moduleCategoryRepository->findAll();
 
 
 
@@ -31,8 +35,9 @@ class CategoryController extends AbstractController
 
 
         return $this->render('category/index.html.twig', [
-            'modules'=> $modules,
-            'category'=> $category
+            'categories'=> $categories,
+            'ModuleByCategory' => $ModuleByCategory
+
         ]);
     }
 }

@@ -10,9 +10,9 @@
 </div>
 
 
-        {# {% for category in categories %}
-            <li class="list-group-item"><a href="{{ path('category', {'id':category.id}) }}">{{ category.name }}</a></li>
-        {% endfor %} #}
+        {% for category in categories %}
+            <li class="list-group-item"><a href="{{ path('category', {'id':category.id}) }}">{{ category.CategoryName }}</a></li>
+        {% endfor %}
 
 
 

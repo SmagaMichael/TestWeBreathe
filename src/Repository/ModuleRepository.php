@@ -18,18 +18,24 @@ class ModuleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Module::class);
     }
-    // public function FindCategory($ModuleCategory){
-    //     //On selectionne tout les champs de la table one_product
-    //     //Select * FROM OneProduct
-    //     $qb = $this->createQueryBuilder('m') // op = one_product
-    //                 ->innerJoin('m.ModuleCategory', 'mc') //On joint la table one_product à la table pcstuff
-    //                 ->andWhere('mc = :ModuleCategory')
-    //                 ->setParameter('pcstuff', $ModuleCategory);
+
+
+    public function FindCategory($id){
+        //On selectionne tout les champs de la table module
+        //Select * FROM Module
+
+        //comme on est dans le repository de Module on choppe la table module automatiquement 
+        //en lui donnant l'alias "m"
+        $qb = $this->createQueryBuilder('m') // m = module
+                    ->innerJoin('m.Category', 'mc') //On prend le champ Category de l'entité Module , 
+                    //en lui donnant l'alias "mc"
+                    ->andWhere('mc = :id') 
+                    ->setParameter('id', $id);
     
-    //     dump($qb->getQuery()->getResult());
-    //     return $qb->getQuery()->getResult();
+        dump($qb->getQuery()->getResult());
+        return $qb->getQuery()->getResult();
     
-    // }
+     }
     
     // /**
     //  * @return Module[] Returns an array of Module objects
