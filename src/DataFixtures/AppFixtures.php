@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\ModuleCategory;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -23,6 +24,23 @@ class AppFixtures extends Fixture
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'test'));
         $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
+
+
+
+
+        $categories = ['Montre', 'Chauffage', 'Prise', 'Assistant Vocal','Caméra'];
+        
+        foreach ($categories as $key => $category){
+            $ModuleCategory = new ModuleCategory();
+            $ModuleCategory->setCategoryName($category);
+            $this->addReference('stuff-'.$key, $ModuleCategory);
+            $manager->persist($ModuleCategory);
+        }
+    
+
+
+
+
 
         $manager->flush();
     }

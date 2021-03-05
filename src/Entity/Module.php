@@ -32,10 +32,6 @@ class Module
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -61,6 +57,13 @@ class Module
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ModuleCategory::class, inversedBy="modules")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Category;
+
 
     public function getId(): ?int
     {
@@ -103,17 +106,6 @@ class Module
         return $this;
     }
 
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
 
     public function getTemperature(): ?float
     {
@@ -174,4 +166,19 @@ class Module
 
         return $this;
     }
+
+    public function getCategory(): ?ModuleCategory
+    {
+        return $this->Category;
+    }
+
+    public function setCategory(?ModuleCategory $Category): self
+    {
+        $this->Category = $Category;
+
+        return $this;
+    }
+
+    
+
 }

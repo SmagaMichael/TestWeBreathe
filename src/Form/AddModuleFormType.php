@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Module;
+use App\Entity\ModuleCategory;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -18,16 +20,17 @@ class AddModuleFormType extends AbstractType
             ->add('name')
             ->add('number')
             ->add('description')
-            ->add('type', ChoiceType::class, [
-                'choices' => [
-                  //'Affiche' => 'Value',
-                    'Montre' => 1,
-                    'Chauffage' => 2,
-                    'Prise' => 3,
-                    'Assistant Vocal' => 4,
-                    'Caméra' => 5,
-                ],
+
+            ->add('Category', EntityType::class, [
+                'class' => ModuleCategory::class,
+                'choice_label' => 'CategoryName',
             ])
+            
+            // ->add('Category', null, [
+            //          'choice_label' => 'CategoryName',
+            //          'expanded' => true
+            //      ])
+
 
             ->add('temperature', RangeType::class,[
                 'attr' => [

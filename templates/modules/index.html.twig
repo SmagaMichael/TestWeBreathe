@@ -9,6 +9,14 @@
     <p class="m-5">Depuis plusieurs années, les objets connectés à internet se multiplient, c'est pourquoi nous proposons des solutions efficaces afin que vous puissiez gérer et visualiser au mieux vos modules.</p>
 </div>
 
+
+        {# {% for category in categories %}
+            <li class="list-group-item"><a href="{{ path('category', {'id':category.id}) }}">{{ category.name }}</a></li>
+        {% endfor %} #}
+
+
+
+
     <div class="AllModule">
 
         {% for module in modules %}
@@ -22,7 +30,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Module n°{{module.number}}</h5>
                     <h5 class="card-title">{{module.name}}</h5>
-                    <p class="card-text">Type : {{module.type}}</p>
+                    <p class="card-text">Type : {{module.category.CategoryName}}</p>
                     <p class="card-text">{{module.description}}</p>
                     <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
                     <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
