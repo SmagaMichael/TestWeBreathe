@@ -49,7 +49,7 @@ class Module
     private $donnees_envoyees;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer")
      */
     private $etat_de_marche;
 
@@ -143,12 +143,12 @@ class Module
         return $this;
     }
 
-    public function getEtatDeMarche(): ?bool
+    public function getEtatDeMarche(): ?int
     {
         return $this->etat_de_marche;
     }
 
-    public function setEtatDeMarche(bool $etat_de_marche): self
+    public function setEtatDeMarche(int $etat_de_marche): self
     {
         $this->etat_de_marche = $etat_de_marche;
 

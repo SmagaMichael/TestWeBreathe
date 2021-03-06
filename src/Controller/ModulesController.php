@@ -39,7 +39,7 @@ class ModulesController extends AbstractController
     /**
      * @Route("/module/fonctionne/{id}", name="marche")
      */
-    public function EtatMarche($id,Module $Module): Response
+    public function EtatMarche($id,Module $Module, Request $request): Response
     {
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -50,9 +50,11 @@ class ModulesController extends AbstractController
         dump($repository);
 
         $entityManager->flush();
-        
-        $this->addFlash('sucess', 'Votre produit fonctionne');
-        return $this->redirecttoRoute('modules');
+
+        $referer = $request->headers->get('referer');
+        $this->addFlash('success', 'Votre module fonctionne');
+        return $this->redirect($referer);
+        // return $this->redirecttoRoute('modules');
   
     }
 
@@ -60,7 +62,7 @@ class ModulesController extends AbstractController
     /**
      * @Route("/module/arret/{id}", name="arret")
      */
-    public function EtatArret($id,Module $Module): Response
+    public function EtatArret($id,Module $Module,Request $request): Response
     {
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -71,9 +73,35 @@ class ModulesController extends AbstractController
         dump($repository);
 
         $entityManager->flush();
+
+        $referer = $request->headers->get('referer');
+        $this->addFlash('danger', 'Votre module a bien été arrêté');
+        return $this->redirect($referer);
+        // return $this->redirecttoRoute('modules');
+  
+    }
+
+    /**
+     * @Route("/module/disfonction/{id}", name="disfonction")
+     */
+    public function EtatDisfonction($id,Module $Module, Request $request): Response
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $repository = $entityManager->getRepository(Module::class)->find($id);
         
-        $this->addFlash('danger', 'Votre produit a bien été arrêté');
-        return $this->redirecttoRoute('modules');
+        $repository->setEtatDeMarche("2");
+        dump($repository);
+
+        $entityManager->flush();
+        
+
+        $this->addFlash('danger', 'Attention, votre module rencontre un disfonctionnement');
+        $referer = $request->headers->get('referer');
+        return $this->redirect($referer);
+
+        //return $this->redirecttoRoute('modules');
   
     }
 

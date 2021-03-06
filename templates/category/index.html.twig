@@ -1,25 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Catégorie!{% endblock %}
 
 {% block body %}
     <div class="homeCover">
-        <h1 class="col-lg-8">Vos modules</h1>
+
+
+        <h1 class="col-lg-8">Catégorie : </h1>
         <p class="m-5">Depuis plusieurs années, les objets connectés à internet se multiplient, c'est pourquoi nous proposons des solutions efficaces afin que vous puissiez gérer et visualiser au mieux vos modules.</p>
     </div>
 
     <div class="MenuCategory">
-            {% for category in categories %}  
+        {% for category in categories %}  
             <div class="m-2">
                 <a class="btn btn-primary" href="{{ path('category', {'id':category.id}) }}">{{ category.CategoryName }}</a>
             </div>
-            {% endfor %}
+        {% endfor %}
     </div> 
 
     <div class="AllModule">
         {% for module in ModuleByCategory %}
                 <div class="card cardModule" >
-                    {% if module.etatDeMarche == 1 %}
+                    
+                {% if module.etatDeMarche == 1 %}
                     <div class="etattitle">
                         <li class=" etat">
                             <div class="circleGreen"></div>
@@ -28,15 +31,26 @@
                         </li>
                         <h6 class="card-title">Module n°{{ module.id}}</h6>
                     </div>
-                {% else %}
+                {% endif %}
+                {% if  module.etatDeMarche == 0 %}
                     <div class="etattitle">
                         <li class=" etat">
                             <div class="circleVoid"></div>
-                            <div class="circleOrange"></div>
+                            <div class="circleVoid"></div>
                             <div class="circleRed"></div>
                         </li>
                         <h6 class="card-title">Module n°{{ module.id}}</h6>
                     </div>
+                {% endif %}
+                {% if module.etatDeMarche == 2 %} 
+                 <div class="etattitle">
+                        <li class=" etat">
+                            <div class="circleVoid"></div>
+                            <div class="circleOrange"></div>
+                            <div class="circleVoid"></div>
+                        </li>
+                        <h6 class="card-title">Module n°{{ module.id}}</h6>
+                    </div> 
                 {% endif %}
                     <img src="{{asset('img/module/' ~ module.image)}}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -45,11 +59,13 @@
                         <p class="card-text">{{module.description}}</p>
                         <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
                         <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
-                          {% if module.etatDeMarche == 1 %}
-                        <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
-                {% else %}
-                        <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
-                {% endif %}
+                        {% if module.etatDeMarche == 1 %}
+                             <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
+                        {% else %}
+                             <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
+                        {% endif %}
+                        <a href="{{path('disfonction', {id: module.id})}}" class="btn btn-primary">Disfonction</a>
+
                     </div>
                 </div>
 

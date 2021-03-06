@@ -51,8 +51,9 @@ class AddModuleFormType extends AbstractType
 
             ->add('etat_de_marche', ChoiceType::class, [
                 'choices'  => [
-                    'Marche' => true,
-                    'Arrêt' => false,
+                    'Marche' => 1,
+                    'Arrêt' => 0,
+                    'disfonctionnement' => 2,
                 ],
             ])
 

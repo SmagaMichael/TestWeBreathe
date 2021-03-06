@@ -41,15 +41,26 @@
                         </li>
                         <h6 class="card-title">Module n°{{ module.id}}</h6>
                     </div>
-                {% else %}
+                {% endif %}
+                {% if  module.etatDeMarche == 0 %}
                     <div class="etattitle">
                         <li class=" etat">
                             <div class="circleVoid"></div>
-                            <div class="circleOrange"></div>
+                            <div class="circleVoid"></div>
                             <div class="circleRed"></div>
                         </li>
                         <h6 class="card-title">Module n°{{ module.id}}</h6>
                     </div>
+                {% endif %}
+                {% if module.etatDeMarche == 2 %} 
+                 <div class="etattitle">
+                        <li class=" etat">
+                            <div class="circleVoid"></div>
+                            <div class="circleOrange"></div>
+                            <div class="circleVoid"></div>
+                        </li>
+                        <h6 class="card-title">Module n°{{ module.id}}</h6>
+                    </div> 
                 {% endif %}
 
                 <img src="{{asset('img/module/' ~ module.image)}}" class="card-img-top" alt="...">
@@ -64,11 +75,13 @@
                     
 
 
-                {% if module.etatDeMarche == 1 %}
-                        <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
-                {% else %}
-                        <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
-                {% endif %}
+                    {% if module.etatDeMarche == 1 %}
+                            <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
+                    {% else %}
+                            <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
+                    {% endif %}
+                    
+                    <a href="{{path('disfonction', {id: module.id})}}" class="btn btn-primary">Disfonction</a>
 
                 </div>
             </div>
