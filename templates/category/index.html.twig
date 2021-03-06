@@ -3,30 +3,43 @@
 {% block title %}Hello CategoryController!{% endblock %}
 
 {% block body %}
+    <div class="homeCover">
+        <h1 class="col-lg-8">Vos modules</h1>
+        <p class="m-5">Depuis plusieurs années, les objets connectés à internet se multiplient, c'est pourquoi nous proposons des solutions efficaces afin que vous puissiez gérer et visualiser au mieux vos modules.</p>
+    </div>
 
-    {% for category in categories %}
-            <li class="list-group-item"><a href="{{ path('category', {'id':category.id}) }}">{{ category.CategoryName }}</a></li>
-    {% endfor %}
-         
-
-    {% for module in ModuleByCategory %}
-       <div class="card" style="width: 18rem;">
-                <li class="list-group-item etat">
-                    <div class="circleGreen"></div>
-                    <div class="circleOrange"></div>
-                    <div class="circleRed"></div>
-                </li>
-                <img src="{{asset('img/module/' ~ module.image)}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Module n°{{module.number}}</h5>
-                    <h5 class="card-title">{{module.name}}</h5>
-                    <p class="card-text">Type : {{module.category.CategoryName}}</p>
-                    <p class="card-text">{{module.description}}</p>
-                    <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
-                    <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
-                </div>
+    <div class="MenuCategory">
+            {% for category in categories %}  
+            <div class="m-2">
+                <a class="btn btn-primary" href="{{ path('category', {'id':category.id}) }}">{{ category.CategoryName }}</a>
             </div>
-    {% endfor %}
+            {% endfor %}
+    </div> 
+
+    <div class="AllModule">
+        {% for module in ModuleByCategory %}
+                <div class="card cardModule" >
+                    <div class="etattitle">
+                        <li class=" etat">
+                            <div class="circleGreen"></div>
+                            <div class="circleOrange"></div>
+                            <div class="circleRed"></div>
+                        </li>
+                        <h6 class="card-title">Module n°{{module.id}}</h6>
+                    </div>
+                    <img src="{{asset('img/module/' ~ module.image)}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{module.name}}</h5>
+                        <p class="card-text">Type : {{module.category.CategoryName}}</p>
+                        <p class="card-text">{{module.description}}</p>
+                        <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
+                        <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
+                    </div>
+                </div>
+
+
+        {% endfor %}
+    </div>
 
 
 {% endblock %}

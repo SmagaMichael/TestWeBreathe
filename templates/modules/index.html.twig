@@ -10,30 +10,69 @@
 </div>
 
 
-        {% for category in categories %}
-            <li class="list-group-item"><a href="{{ path('category', {'id':category.id}) }}">{{ category.CategoryName }}</a></li>
-        {% endfor %}
-
-
+        <div class="MenuCategory">
+             {% for category in categories %}  
+                <div class="m-2">
+                    <a class="btn btn-primary" href="{{ path('category', {'id':category.id}) }}">{{ category.CategoryName }}</a>
+                </div>
+             {% endfor %}
+        </div> 
 
 
     <div class="AllModule">
 
         {% for module in modules %}
-            <div class="card" style="width: 18rem;">
-                <li class="list-group-item etat">
-                    <div class="circleGreen"></div>
-                    <div class="circleOrange"></div>
-                    <div class="circleRed"></div>
-                </li>
+            <div class="card cardModule" >
+               {# <div class="etattitle">
+                    <li class=" etat">
+                        <div class="circleGreen"></div>
+                        <div class="circleOrange"></div>
+                        <div class="circleRed"></div>
+                    </li>
+                    <h6 class="card-title">Module n°{{ module.id}}</h6>
+               </div> #}
+
+                {% if module.etatDeMarche == 1 %}
+                    <div class="etattitle">
+                        <li class=" etat">
+                            <div class="circleGreen"></div>
+                            <div class="circleVoid"></div>
+                            <div class="circleVoid"></div>
+                        </li>
+                        <h6 class="card-title">Module n°{{ module.id}}</h6>
+                    </div>
+                {% else %}
+                    <div class="etattitle">
+                        <li class=" etat">
+                            <div class="circleVoid"></div>
+                            <div class="circleVoid"></div>
+                            <div class="circleRed"></div>
+                        </li>
+                        <h6 class="card-title">Module n°{{ module.id}}</h6>
+                    </div>
+                {% endif %}
+
                 <img src="{{asset('img/module/' ~ module.image)}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Module n°{{module.number}}</h5>
                     <h5 class="card-title">{{module.name}}</h5>
                     <p class="card-text">Type : {{module.category.CategoryName}}</p>
                     <p class="card-text">{{module.description}}</p>
                     <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
                     <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
+                    <br>
+                    <br>
+                    
+
+
+                {% if module.etatDeMarche == 1 %}
+                        <a name="etat" value="{{module.etatDeMarche}}" href="" class="btn btn-primary">Arret</a>
+                {% else %}
+                        <a href="" class="btn btn-primary">Marche</a>
+                {% endif %}
+
+                
+
+
                 </div>
             </div>
         {% endfor %}

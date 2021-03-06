@@ -23,6 +23,11 @@ class AddModuleController extends AbstractController
             $form->handleRequest($request);
             if($form->isSubmitted() && $form->isValid()){
 
+            
+            
+
+
+
 
             //__________________UPLOAD IMAGE___________________________________________
             /** @var UploadedFile $image */

@@ -18,7 +18,7 @@ class AddModuleFormType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('number')
+            // ->add('number')
             ->add('description')
 
             ->add('Category', EntityType::class, [
@@ -48,7 +48,13 @@ class AddModuleFormType extends AbstractType
                 ]
             ])
             ->add('donnees_envoyees')
-            ->add('etat_de_marche')
+
+            ->add('etat_de_marche', ChoiceType::class, [
+                'choices'  => [
+                    'Marche' => true,
+                    'Arrêt' => false,
+                ],
+            ])
 
             ->add('image', FileType::class, [
                 'mapped' => false,

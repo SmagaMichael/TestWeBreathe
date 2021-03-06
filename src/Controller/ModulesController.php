@@ -17,6 +17,9 @@ class ModulesController extends AbstractController
 
     public function index(ModuleCategoryRepository $moduleCategoryRepository, Request $request): Response
     {
+
+        
+
         //la on appelle la table Module
         $repository = $this->getDoctrine()->getRepository(Module::class);
         //Affiche tout les modules disponible

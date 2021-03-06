@@ -5,36 +5,11 @@
     justify-content: center;
 }
 
-.etat{
+
+
+.MenuCategory{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.card{
-    margin: 5px;
-}
-.circleGreen{
-    background-color: chartreuse;
-    width: 20px;
-    height: 20px;
-    border-radius: 30px;
-    margin: 3px;
-} 
-
-.circleOrange{  
-    background-color: orange;
-    width: 20px;
-    height: 20px;
-    border-radius: 30px;
-    margin: 3px;
-
-} 
-
-.circleRed{
-    background-color: red;
-    width: 20px;
-    height: 20px;
-    border-radius: 30px;
-    margin: 3px;
-
-}
