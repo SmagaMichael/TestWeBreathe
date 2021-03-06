@@ -22,4 +22,5 @@ class DeleteController extends AbstractController
         return $this->redirecttoRoute('modules');
   
     }
+    
 }

@@ -45,7 +45,7 @@
                     <div class="etattitle">
                         <li class=" etat">
                             <div class="circleVoid"></div>
-                            <div class="circleVoid"></div>
+                            <div class="circleOrange"></div>
                             <div class="circleRed"></div>
                         </li>
                         <h6 class="card-title">Module n°{{ module.id}}</h6>
@@ -65,13 +65,10 @@
 
 
                 {% if module.etatDeMarche == 1 %}
-                        <a name="etat" value="{{module.etatDeMarche}}" href="" class="btn btn-primary">Arret</a>
+                        <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
                 {% else %}
-                        <a href="" class="btn btn-primary">Marche</a>
+                        <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
                 {% endif %}
-
-                
-
 
                 </div>
             </div>

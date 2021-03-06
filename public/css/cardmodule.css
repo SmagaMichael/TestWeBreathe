@@ -37,7 +37,17 @@
     border-radius: 30px;
     margin: 2px;
 
+    animation-duration: .8s;
+    animation-name: clignoter;
+    animation-iteration-count: infinite;
+    transition: none;
+
 } 
+@keyframes clignoter {
+    0%   { opacity:1; }
+    40%   {opacity:0; }
+    100% { opacity:1; }
+  }
 
 .circleRed{
     border: 1px solid black;

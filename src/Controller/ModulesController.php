@@ -19,7 +19,6 @@ class ModulesController extends AbstractController
     {
 
         
-
         //la on appelle la table Module
         $repository = $this->getDoctrine()->getRepository(Module::class);
         //Affiche tout les modules disponible
@@ -35,4 +34,49 @@ class ModulesController extends AbstractController
 
         ]);
     }
+
+   
+    /**
+     * @Route("/module/fonctionne/{id}", name="marche")
+     */
+    public function EtatMarche($id,Module $Module): Response
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $repository = $entityManager->getRepository(Module::class)->find($id);
+        
+        $repository->setEtatDeMarche("1");
+        dump($repository);
+
+        $entityManager->flush();
+        
+        $this->addFlash('sucess', 'Votre produit fonctionne');
+        return $this->redirecttoRoute('modules');
+  
+    }
+
+    
+    /**
+     * @Route("/module/arret/{id}", name="arret")
+     */
+    public function EtatArret($id,Module $Module): Response
+    {
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $repository = $entityManager->getRepository(Module::class)->find($id);
+        
+        $repository->setEtatDeMarche("0");
+        dump($repository);
+
+        $entityManager->flush();
+        
+        $this->addFlash('danger', 'Votre produit a bien été arrêté');
+        return $this->redirecttoRoute('modules');
+  
+    }
+
+
+
 }
