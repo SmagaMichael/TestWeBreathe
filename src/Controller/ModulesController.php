@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Historique;
 use App\Entity\Module;
 use App\Repository\ModuleCategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,15 +40,23 @@ class ModulesController extends AbstractController
     /**
      * @Route("/module/fonctionne/{id}", name="marche")
      */
-    public function EtatMarche($id,Module $Module, Request $request): Response
+    public function EtatMarche($id, Module $Module, Request $request): Response
     {
-
+        //-------------------------------------------------------
         $entityManager = $this->getDoctrine()->getManager();
-
         $repository = $entityManager->getRepository(Module::class)->find($id);
-        
         $repository->setEtatDeMarche("1");
-        dump($repository);
+        //dump($repository);
+        //-------------------------------------------------------
+        $Commentaire = $entityManager->getRepository(Module::class)->find($id);
+        $idModuleCommentaire = $Commentaire->getId();
+        $NameModuleCommentaire = $Commentaire->getName();
+
+        $commentaire = new Historique();
+        $commentaire->setCommentaire(" 🟢 Le module n° $idModuleCommentaire : $NameModuleCommentaire fonctionne correctement");
+        $entityManager->persist($commentaire);
+
+        //-------------------------------------------------------
 
         $entityManager->flush();
 
@@ -66,11 +75,20 @@ class ModulesController extends AbstractController
     {
 
         $entityManager = $this->getDoctrine()->getManager();
-
         $repository = $entityManager->getRepository(Module::class)->find($id);
-        
         $repository->setEtatDeMarche("0");
-        dump($repository);
+
+        //-------------------------------------------------------
+        $Commentaire = $entityManager->getRepository(Module::class)->find($id);
+        $idModuleCommentaire = $Commentaire->getId();
+        $NameModuleCommentaire = $Commentaire->getName();
+
+        $commentaire = new Historique();
+        $commentaire->setCommentaire(" 🔴 Attention ! Le module n° $idModuleCommentaire : $NameModuleCommentaire s'est arrêté ! ");
+        $entityManager->persist($commentaire);
+
+        //-------------------------------------------------------
+
 
         $entityManager->flush();
 
@@ -81,6 +99,11 @@ class ModulesController extends AbstractController
   
     }
 
+
+
+
+
+
     /**
      * @Route("/module/disfonction/{id}", name="disfonction")
      */
@@ -90,14 +113,25 @@ class ModulesController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         $repository = $entityManager->getRepository(Module::class)->find($id);
-        
         $repository->setEtatDeMarche("2");
-        dump($repository);
+
+
+    //-------------------------------------------------------
+        $Commentaire = $entityManager->getRepository(Module::class)->find($id);
+        $idModuleCommentaire = $Commentaire->getId();
+        $NameModuleCommentaire = $Commentaire->getName();
+
+    
+        $commentaire = new Historique();
+        $commentaire->setCommentaire(" ⚠️ Le module n° $idModuleCommentaire : $NameModuleCommentaire est dans un état de disfonctionnement");
+        $entityManager->persist($commentaire);
+
+    //-------------------------------------------------------
 
         $entityManager->flush();
         
-
         $this->addFlash('danger', 'Attention, votre module rencontre un disfonctionnement');
+
         $referer = $request->headers->get('referer');
         return $this->redirect($referer);
 

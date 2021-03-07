@@ -72,3 +72,16 @@
     height: 150px;
     width: auto;
 }
+
+
+.divButtonCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+.divButtonCard a{
+   margin: 5px;
+
+}

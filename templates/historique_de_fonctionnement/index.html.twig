@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HistoriqueDeFonctionnementController!{% endblock %}
+
+{% block body %}
+    {# {% for commentaire in commentaires %}  
+       {{ commentaire.commentaire }} <br>
+    {% endfor %} #}
+
+   <div class="container">
+        <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">n°</th>
+                <th scope="col">Commentaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commentaire in commentaires %}  
+                
+            
+            <tr>
+                <th scope="row">{{ commentaire.id }}</th>
+                <td>{{ commentaire.commentaire }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+   </div>
+      
+
+
+{% endblock %}
