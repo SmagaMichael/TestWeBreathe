@@ -5,7 +5,6 @@
 {% block body %}
     <div class="homeCover">
 
-
         <h1 class="col-lg-8">Catégorie : </h1>
         <p class="m-5">Depuis plusieurs années, les objets connectés à internet se multiplient, c'est pourquoi nous proposons des solutions efficaces afin que vous puissiez gérer et visualiser au mieux vos modules.</p>
     </div>
@@ -62,11 +61,18 @@
                             <a href="{{path('edit', {id: module.id})}}" class="btn btn-primary">Modifier</a>
                             <a href="{{path('delete', {id: module.id})}}" class="btn btn-primary">Supprimer</a>
                             {% if module.etatDeMarche == 1 %}
-                                <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
-                            {% else %}
-                                <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
+                                    <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
+                                    <a href="{{path('disfonction', {id: module.id})}}" class="btn btn-primary">Disfonction</a>
                             {% endif %}
-                            <a href="{{path('disfonction', {id: module.id})}}" class="btn btn-primary">Disfonction</a>
+                            {% if module.etatDeMarche == 0 %}
+                                    <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
+                                    <a href="{{path('disfonction', {id: module.id})}}" class="btn btn-primary">Disfonction</a>
+
+                            {% endif %}
+                            {% if module.etatDeMarche == 2 %}
+                                    <a href="{{path('marche', {id: module.id})}}" class="btn btn-primary">Marche</a>
+                                    <a href="{{path('arret', {id: module.id})}}" class="btn btn-primary">Arret</a>
+                            {% endif %}
                         </div>
 
                     </div>

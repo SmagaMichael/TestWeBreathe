@@ -19,7 +19,7 @@ class ModulesController extends AbstractController
     public function index(ModuleCategoryRepository $moduleCategoryRepository, Request $request): Response
     {
 
-        
+
         //la on appelle la table Module
         $repository = $this->getDoctrine()->getRepository(Module::class);
         //Affiche tout les modules disponible
@@ -31,17 +31,18 @@ class ModulesController extends AbstractController
 
         return $this->render('modules/index.html.twig', [
             'modules' => $Modules,
-            'categories'=> $category
+            'categories' => $category
 
         ]);
     }
 
-   
+
     /**
      * @Route("/module/fonctionne/{id}", name="marche")
      */
     public function EtatMarche($id, Module $Module, Request $request): Response
     {
+
         //-------------------------------------------------------
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $entityManager->getRepository(Module::class)->find($id);
@@ -53,25 +54,26 @@ class ModulesController extends AbstractController
         $NameModuleCommentaire = $Commentaire->getName();
 
         $commentaire = new Historique();
-        $commentaire->setCommentaire(" 🟢 Le module n° $idModuleCommentaire : $NameModuleCommentaire fonctionne correctement");
+        $commentaire->setCommentaire(" 🟢 Le module n° $idModuleCommentaire : $NameModuleCommentaire fonctionne correctement ");
         $entityManager->persist($commentaire);
 
         //-------------------------------------------------------
 
         $entityManager->flush();
 
-        $referer = $request->headers->get('referer');
         $this->addFlash('success', 'Votre module fonctionne');
-        return $this->redirect($referer);
+        
+        $CurrentPage = $request->headers->get('referer');
+        return $this->redirect($CurrentPage);
         // return $this->redirecttoRoute('modules');
-  
+
     }
 
-    
+
     /**
      * @Route("/module/arret/{id}", name="arret")
      */
-    public function EtatArret($id,Module $Module,Request $request): Response
+    public function EtatArret($id, Module $Module, Request $request): Response
     {
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -92,11 +94,11 @@ class ModulesController extends AbstractController
 
         $entityManager->flush();
 
-        $referer = $request->headers->get('referer');
+      
         $this->addFlash('danger', 'Votre module a bien été arrêté');
-        return $this->redirect($referer);
-        // return $this->redirecttoRoute('modules');
-  
+        $CurrentPage = $request->headers->get('referer');
+        return $this->redirect($CurrentPage);
+
     }
 
 
@@ -107,38 +109,31 @@ class ModulesController extends AbstractController
     /**
      * @Route("/module/disfonction/{id}", name="disfonction")
      */
-    public function EtatDisfonction($id,Module $Module, Request $request): Response
+    public function EtatDisfonction($id, Module $Module, Request $request): Response
     {
 
         $entityManager = $this->getDoctrine()->getManager();
-
         $repository = $entityManager->getRepository(Module::class)->find($id);
         $repository->setEtatDeMarche("2");
 
 
-    //-------------------------------------------------------
+        //-------------------------------------------------------
         $Commentaire = $entityManager->getRepository(Module::class)->find($id);
         $idModuleCommentaire = $Commentaire->getId();
         $NameModuleCommentaire = $Commentaire->getName();
 
-    
+
         $commentaire = new Historique();
         $commentaire->setCommentaire(" ⚠️ Le module n° $idModuleCommentaire : $NameModuleCommentaire est dans un état de disfonctionnement");
         $entityManager->persist($commentaire);
 
-    //-------------------------------------------------------
+        //-------------------------------------------------------
 
         $entityManager->flush();
-        
+
         $this->addFlash('danger', 'Attention, votre module rencontre un disfonctionnement');
 
-        $referer = $request->headers->get('referer');
-        return $this->redirect($referer);
-
-        //return $this->redirecttoRoute('modules');
-  
+        $CurrentPage = $request->headers->get('referer');
+        return $this->redirect($CurrentPage);
     }
-
-
-
 }

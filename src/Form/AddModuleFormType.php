@@ -21,15 +21,15 @@ class AddModuleFormType extends AbstractType
             // ->add('number')
             ->add('description')
 
-            ->add('Category', EntityType::class, [
-                'class' => ModuleCategory::class,
-                'choice_label' => 'CategoryName',
-            ])
+            // ->add('Category', EntityType::class, [
+            //     'class' => ModuleCategory::class,
+            //     'choice_label' => 'CategoryName',
+            // ])
             
-            // ->add('Category', null, [
-            //          'choice_label' => 'CategoryName',
-            //          'expanded' => true
-            //      ])
+            ->add('Category', null, [
+                     'choice_label' => 'CategoryName',
+                    //  'expanded' => true
+                 ])
 
 
             ->add('temperature', RangeType::class,[
@@ -47,7 +47,7 @@ class AddModuleFormType extends AbstractType
                     'class' => 'p-0',
                 ]
             ])
-            ->add('donnees_envoyees')
+            // ->add('donnees_envoyees')
 
             ->add('etat_de_marche', ChoiceType::class, [
                 'choices'  => [

@@ -1,0 +1,35 @@
+.titleli{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* A PROPOS  carousel*/
+
+.puceOk{
+    list-style: "\002611";}
+
+.nopuce{
+    list-style-type: none;}
+
+
+.mypc{
+  width: 150px;
+  height: auto;
+}
+
+.cardabout{
+    border-radius: 15px;
+    border: 2px solid black;
+    height: 170px;
+    box-shadow: 10px 5px 5px #205cc7;
+}
+.cardtextabout{
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 30px;
+    margin-bottom: 20px;
+    height: 100%;
+    box-shadow: 10px 5px 5px #205cc7;
+    text-align: justify;
+}

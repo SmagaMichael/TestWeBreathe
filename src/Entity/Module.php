@@ -22,10 +22,10 @@ class Module
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $number;
+    // /**
+    //  * @ORM\Column(type="integer", nullable=true)
+    //  */
+    // private $number;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -43,10 +43,10 @@ class Module
      */
     private $duree_fonctionnement;
 
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $donnees_envoyees;
+    // /**
+    //  * @ORM\Column(type="float", nullable=true)
+    //  */
+    // private $donnees_envoyees;
 
     /**
      * @ORM\Column(type="integer")
@@ -82,17 +82,17 @@ class Module
         return $this;
     }
 
-    public function getNumber(): ?int
-    {
-        return $this->number;
-    }
+    // public function getNumber(): ?int
+    // {
+    //     return $this->number;
+    // }
 
-    public function setNumber(?int $number): self
-    {
-        $this->number = $number;
+    // public function setNumber(?int $number): self
+    // {
+    //     $this->number = $number;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getDescription(): ?string
     {
@@ -131,17 +131,17 @@ class Module
         return $this;
     }
 
-    public function getDonneesEnvoyees(): ?float
-    {
-        return $this->donnees_envoyees;
-    }
+    // public function getDonneesEnvoyees(): ?float
+    // {
+    //     return $this->donnees_envoyees;
+    // }
 
-    public function setDonneesEnvoyees(?float $donnees_envoyees): self
-    {
-        $this->donnees_envoyees = $donnees_envoyees;
+    // public function setDonneesEnvoyees(?float $donnees_envoyees): self
+    // {
+    //     $this->donnees_envoyees = $donnees_envoyees;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getEtatDeMarche(): ?int
     {

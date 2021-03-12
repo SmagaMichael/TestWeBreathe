@@ -3,18 +3,106 @@
 {% block title %}Hello AProposController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Mikie/Desktop/Test-WeBreathe/TestWeBreathe/src/Controller/AProposController.php'|file_link(0) }}">src/Controller/AProposController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Mikie/Desktop/Test-WeBreathe/TestWeBreathe/templates/a_propos/index.html.twig'|file_link(0) }}">templates/a_propos/index.html.twig</a></code></li>
-    </ul>
+<div class="homeCover">
+    <h1 class="col-lg-8">Présentation : </h1>
+    <p class="m-5">J'ai fais cette petite page en plus pour vous parler de moi et afin de me présenter un minimum.</p>
 </div>
+
+
+<div class="container">
+
+    <h1>Bonjour, je m'appelle Smaga Michaël</h1>
+    <p>J'ai 28 ans , j'ai une licence en Automatisme/Robotique , et une licence Gestion de la production Industriel, option Chargé d'affaires.</p>
+    <p>En pleine reconversion, je me suis inscris chez M2i, à la formation : ‘’ Concepteur / Développeur d'Application’’ depuis le 5 octobre 2020</p>
+
+    <p> Au progamme : </p>
+    <div class="row">
+
+        <div class=" col-lg-2 col-md-6">
+            <ul class="cardabout">
+                <li class="titleli">Différents langages:</li>
+                <li class="puceOk">html </li>
+                <li class="puceOk">css </li>
+                <li class="puceOk">java</li>
+                <li class="puceOk">PHP</li>
+                <li class="puceOk">JavaScript </li>
+            </ul>
+        </div>
+
+        <div class="  col-lg-2 col-md-6">
+            <ul class="cardabout">
+                <li class="titleli">Framework Java:</li>
+                <li>Spring</li>
+                <li>Hibernate</li>
+                <li class="nopuce"></li>
+                <br>
+                <li class="titleli">Framework PHP:</li>
+                <li class="puceOk">Symfony</li>
+            </ul>
+        </div>
+
+        <div class=" col-lg-2 col-md-6">
+            <ul class="cardabout">
+                <li class="titleli">Framework JavaScript:</li>
+                <li class="puceOk">Angular</li>
+                <li class="puceOk">Ionic</li>
+                <li>React</li>
+            </ul>
+
+        </div>
+
+        <div class="  col-lg-2 col-md-6">
+            <ul class="cardabout">
+                <li class="titleli">Base de données:</li>
+                <li class="puceOk">SQL</li>
+                <li class="puceOk">MySQL</li>
+                <li>MongoDB</li>
+            </ul>
+        </div>
+
+        <div class="  col-lg-2 col-md-6">
+            <ul class="cardabout">
+                <li class="titleli">Ainsi que</li>
+                <li class="puceOk">Bootstrap</li>
+                <li class="puceOk">Jquery</li>
+                <li class="puceOk">git</li>
+                <li class="puceOk">github</li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="  col-lg-2 col-md-6">
+            <ul class="cardabout">
+                <li class="titleli">Et aussi:</li>
+                <li>Méthodologie de projet (Scrum)</li>
+                <li>Gestion des Big Data</li>
+                <li class="puceOk">Algorithmie </li>
+                <li class="puceOk">UML</li>
+
+            </ul>
+        </div>
+    
+    </div>
+    <div class="cardtextabout">
+    
+
+    <p>A travers cette formation je me suis découvert un profil plutôt Front bien que sans surprise étant très créatif depuis toujours, mais je ne veux pas m'arrêter à ça, je veux pouvoir maitriser au mieux le coté Back afin d'élargir mes compétences au maximum. J'ai donc découvert Symfony , pour lequel j'ai eu un coup de coeur et que j'ai adoré découvrir jusqu'à prendre une formation en plus pour pourvoir le maitriser au mieux et j'adore le manipuler ! Donc voici votre test en Symfony .</p>
+
+    <p>Voila pourquoi je serais heureux de vous rejoindre et d'apprendre à vos cotés, dans votre annonce j'ai reconnu les technologies que j'appréciai à utiliser ou d'autre que j'aimerai voir la suite , comme Laravel. Le travail , les horaires , et l'apprentissage continu ne me font pas peur bien au contraire, je suis plus que motivé à maitriser aussi bien le Front que le Back.</p>
+
+    <p> Je vous invite à voir <a href="https://smaga-michael.fr/">mon portfolio</a> pour que vous puissiez vous faire une idée sur mes compétences déjà acquises au cours de ma formation.</p>
+    <p>Ainsi que mon github afin de voir le code des projets déjà réalisés <a href="https://github.com/SmagaMichael">Mon github</a> .</p>
+
+    <p>Je vous remercie encore pour l'attention que vous m'ayez porté, en espèrant satisfaire vos attentes avec ce test.</p>
+    <p>Cordialement, Smaga Michaël <img class="mypc" src="{{asset('img/about/mypc.png')}}" alt=""></p>
+    </div>
+    
+
+</div>
+
+
+
+
 {% endblock %}

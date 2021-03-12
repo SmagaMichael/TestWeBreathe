@@ -51,6 +51,13 @@ class ModuleCategory
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->CategoryName;
+    }
+
+
+
     /**
      * @return Collection|Module[]
      */

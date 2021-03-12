@@ -25,29 +25,21 @@ class EditController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-
              $image= $form->get('image')->getData();
 
         if($image){
-
             $defaultImages = ['default.png'];
-
             if($Module->getImage() && !in_array($Module->getImage(), $defaultImages )) {
                 // FileSystem permet de manipuler les fichiers
                 $fs = new Filesystem();
                 // On supprime l'ancienne image
                 $fs->remove($this->getParameter('upload_directory').'/'.$Module->getImage());
-                
             }
 
             $filename = uniqid().'.'.$image->guessExtension();
             $image->move($this->getParameter('upload_directory'), $filename);
             $Module->setImage($filename);
-
         }
-
-        
-
             //On ajoute l'objet dans la BDD
             //On récupere le service doctrine qui permet de gérer la base de données
         $this->getDoctrine()->getManager()->flush();
@@ -58,11 +50,9 @@ class EditController extends AbstractController
 
         }
     
-
-
-    return $this->render('edit/index.html.twig', [
-        'AddModuleFormType' => $form->createView(),
-        'Module' => $Module
-    ]);
-}
+        return $this->render('edit/index.html.twig', [
+            'AddModuleFormType' => $form->createView(),
+            'Module' => $Module
+        ]);
+    }
 }
